@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+  <h2 > MIS LIBROS</h2>
+  <p>
+  <table class="table table-striped table-hover">
+      <tbody>
+      <tr ng-repeat="todo in listado">
+          <td><image src="/libros/{{todo.id}}/picture" alt="" width="60" height="80"/></td>
+          <td>{{todo.nombre}}</td>
+          <td>{{todo.editorial}}</td>
+          <td>{{todo.autor}}</td>
+
+      </tr>
+      </tbody>
+  </table>
+  </p>
+</body>
+</html>

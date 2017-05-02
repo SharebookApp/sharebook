@@ -1,0 +1,22 @@
+
+
+        <p>Estos son los libros disponibles para tu ubicación:</p>
+        <p>
+        <table class="table table-striped table-hover">
+            <tbody>
+            <tr ng-repeat="todo in listado">
+                <td><image src="/libros/{{todo.id}}/picture" alt="" width="60" height="80"/></td>
+                <td>{{todo.nombre}}</td>
+                <td>{{todo.editorial}}</td>
+                <td>{{todo.autor}}</td>
+                <td><button class="btn btn-default" ng-click="showConfirm(todo)">Detalles</button></td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+        <div ng-if="status" id="status">
+            <b layout="row" layout-align="center center" class="md-padding">
+                {{status}}
+            </b>
+        </div>
+

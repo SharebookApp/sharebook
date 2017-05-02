@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js">
+<html xmlns:ng="http://angularjs.org/" ng-app>
+
+<!--<![endif]-->
+<head>
+    <title>ShareBookApp</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        html, body, #map_canvas {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+        #map_canvas {
+            position: relative;
+        }
+
+        .angular-google-map-container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+        display: none !important;
+    </style>
+
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <!--Angular material-->
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+</head>
+
+    <!-- Google Maps Javascript API -->
+
+
+    <!--  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
+
+   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>-->
+    <!-- Barra de navegación - fixed navbar -->
+
+    <!-- Barra de navegación - fixed navbar -->
+    <body ng-app="myApp" ng-cloak class="ng-cloak">
+        <nav class="navbar navbar-inverse" style="background:red;">
+            <div ng-controller="loginCtrl"  class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Share-Book</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" >
+
+
+                        <li ><a   href="#">Home</a></li>
+                      
+                        <li><a ng-show="authenticated" href="#!/publicarLibro">Publicar Libro</a></li>
+                        <li><a ng-show="authenticated" href="#!/intercambiar">Intercambiar Libros</a></li>
+                        <li><a ng-show="authenticated" href="#!/mapa">Mapa de libros</a></li>
+                         <li><a ng-show="authenticated" href="#!/misLibros">Mis Libros</a></li>
+                        <li><a ng-show="authenticated" href="#!/buscarLibros">Buscar Libros </a></li>
+                        <li><a ng-show="authenticated" href="#!/solicitudes">Solicitudes </a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="!authenticated"><a href="#!/register"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+                        <li ng-show="!authenticated"><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li ng-show="authenticated"><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+   <!-- In production use:
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+   -->
+
+
+
+   <!-- Contenedor central-->
+   <div class="container">
+       <div class="page-header">
+           <div ng-view></div>
+       </div>
+       <!-- <p class="lead">test3.</p>-->
+    </div>
+
+    <!--/Pie de pagina / footer -->
+   <footer class="footer navbar-fixed-bottom" style="background-color: #d6d6c2;">
+       <div class="container">
+           <p class="text-muted"><p class="copyright text-muted small">En desarrollo
+       </div>
+   </footer>
+
+   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC12dLsVy6QgFB1dTFrjIPc_BJm1RbIImU"></script>
+   <script src='bower_components/lodash/dist/lodash.compat.js'></script>
+   <script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+
+
+   <script src="app.js"></script>
+   <script src="login/login.js"></script>
+   <script src="registro/registro.js"></script>
+        <script src="publicarLibro/subirImagen.js"></script>
+   <script src="publicarLibro/publicarLibro.js"></script>
+   <script src="intercambiar/intercambiar.js"></script>
+   <script src="librosDisponibles/librosDisponibles.js"></script>
+   <script src="mapa/mapa.js"></script>
+
+        <script src="misLibros/misLibros.js"></script>
+        <script src="buscarLibros/buscarLibros.js"></script>
+        <script src="solicitudes/solicitudes.js"></script>
+ <script src="services/fabricaLibro.js"></script>
+        <script src="services/fabricaUser.js"></script>
+
+
+   <script src="components/version/version.js"></script>
+   <script src="components/version/version-directive.js"></script>
+   <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

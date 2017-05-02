@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org/" ng-app="appMaps">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mapa Libros</title>
+    <script src="/app/bower_components/angular/angular.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC12dLsVy6QgFB1dTFrjIPc_BJm1RbIImU"></script>
+    <script src='/app/bower_components/lodash/dist/lodash.compat.js'></script>
+    <script src='/app/bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+    <script src="/app/mapa/mapa.js"></script>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+        #map_canvas {
+            position: absolute;
+            height: 100%;
+            width: 70%;
+        }
+
+        .angular-google-map-container {
+            position: absolute;
+            top: 10%;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+<div id="map_canvas" ng-controller="mainCtrl">
+    <ui-gmap-google-map center="map.center"
+                        zoom="map.zoom"
+                        draggable="true"
+                        options="map.options"
+                        control="map.control">
+        <ui-gmap-markers models="map.markers" coords="'self'" options="'options'" isLabel="true" events="map.markersEvents">
+        </ui-gmap-markers>
+        <ui-gmap-window
+                show="map.window.show"
+                coords="map.window.model"
+                templateUrl="'/app/mapa/infowindow.tpl'"
+                templateParameter="libroMarcador"
+                options="map.window.options"
+                ng-cloak>
+        </ui-gmap-window>
+    </ui-gmap-google-map>
+</div>
+
+</body>
+
+</html>

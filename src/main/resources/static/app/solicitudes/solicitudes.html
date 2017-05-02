@@ -1,0 +1,38 @@
+
+
+        <p>Estos son los libros disponibles para tu ubicación:</p>
+        <p>
+        <table>
+            <tr>
+                <table class="table table-striped table-hover">
+                    <tbody>
+                        <tr ng-repeat="todo in lista1">
+
+                            <td>{{todo.nombre}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <tr>
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr ng-repeat="todo in lista1">
+                        <td><image src="/app/imagenes/arrow.png" alt="" width="80" height="80"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </tr>
+            <tr>
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr ng-repeat="todo in lista2">
+
+                        <td>{{todo.nombre}}</td>
+                        <td><button class="btn btn-default" ng-click="showConfirm(todo)">Detalles</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </tr>
+        </table>
+        </p>
+
